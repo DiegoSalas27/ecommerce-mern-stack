@@ -81,7 +81,9 @@ module.exports = {
 
     getAll(req, res) {
         return Usuario
-            .findAndCountAll()
+            .findAndCountAll({
+                attributes: ['id', 'usuario', 'password']
+            })
             .then(result => res.status(201).send({
                 usuarios: result.rows,
                 count: result.count,

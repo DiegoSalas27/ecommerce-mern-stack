@@ -9,7 +9,7 @@ module.exports = {
                     precio: req.body.precio,
                     categoriaId: req.body.categoriaId
                 })
-                .then(categoria => res.status(201).send({
+                .then(producto => res.status(201).send({
                     message: 'Se ha creado un nuevo producto.'
                 }))
                 .catch(err => res.status(400).send(err));
@@ -19,7 +19,9 @@ module.exports = {
         const categoria = req.query.categoria;
         if(!categoria) {
             return Producto
-            .findAndCountAll()
+            .findAndCountAll({
+                attributes: ['id', 'nombre', 'descripcion', 'precio', 'categoriaId']
+            })
             .then(result => res.status(201).send({
                 productos: result.rows,
                 count: result.count,

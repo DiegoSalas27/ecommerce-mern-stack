@@ -15,7 +15,9 @@ module.exports = {
 
     getAll(req, res) {
         return Categoria
-            .findAndCountAll()
+            .findAndCountAll({
+                attributes: ['id', 'nombre', 'descripcion']
+            })
             .then(result => res.status(201).send({
                 categorias: result.rows,
                 count: result.count,
