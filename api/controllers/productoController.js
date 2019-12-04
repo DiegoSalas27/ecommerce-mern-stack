@@ -16,7 +16,9 @@ module.exports = {
     },
 
     getAll(req, res) {
-        return Producto
+        const categoria = req.query.categoria;
+        if(!categoria) {
+            return Producto
             .findAndCountAll()
             .then(result => res.status(201).send({
                 productos: result.rows,
@@ -24,6 +26,21 @@ module.exports = {
 
             }))
             .catch(err => res.status(400).send(err));
+        } else {
+            return Producto
+            .findAndCountAll({
+                where:{
+                    categoriaId: categoria
+                }
+            })
+            .then(result => res.status(201).send({
+                productos: result.rows,
+                count: result.count,
+
+            }))
+            .catch(err => res.status(400).send(err));
+        }
+        
     },
 
     get(req, res) {
