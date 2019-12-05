@@ -102,20 +102,25 @@ module.exports = {
     },
 
     update(req, res) {
-        Usuario
-            .update(
-                {
-                    usuario: req.body.nombre,
-                    password: req.body.descripcion
-                },
-                {
-                    where: {id: req.params.usuarioId}
-                }
-            )
-            .then(usuario => res.status(201).send({
-                response: 'usuario actualizado.'
-            }))
-            .catch(err => res.status(400).send(err));
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(req.body.password, salt, (err, hash) => {
+                if(err) throw err;
+                Usuario
+                .update(
+                    {
+                        usuario: req.body.usuario,
+                        password: hash
+                    },
+                    {
+                        where: {id: req.params.usuarioId}
+                    }
+                )
+                .then(usuario => res.status(201).send({
+                    response: 'usuario actualizado.'
+                }))
+                .catch(err => res.status(400).send(err));
+            })
+        })
     },
 
     delete(req, res) {
