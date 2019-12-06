@@ -31,7 +31,7 @@ function Main(props) {
     },[])
 
     async function onChangeCategory(id) {
-        const resCat = await axios.get(`http://localhost:8080/api/producto?categoria=${id}`);
+        const resCat = await axios.get(`/api/producto?categoria=${id}`);
         setProductos(resCat.data.productos);
     }
 
