@@ -3,6 +3,7 @@ const app = express();
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const http = require('http');
+const path = require('path');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -29,6 +30,17 @@ models.sequelize.sync()
     .catch(err => console.log('Something went wrong with the db'));
 
 require('./api/routes')(app);
+
+// Serve static assets if we are in production
+
+if(process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('client/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
