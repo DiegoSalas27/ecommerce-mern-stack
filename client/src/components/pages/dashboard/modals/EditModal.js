@@ -13,7 +13,7 @@ function EditModal(props) {
     const [categories, setCategories] = useState([]);
     const [category, setSelectedCategory] = useState('');
     const [usuario, setUsuario] = useState(props.objeto.usuario);
-    const [password, setPassword] = useState(props.objeto.password);
+    const [password, setPassword] = useState('');
 
     const dispatch = useDispatch();
 
