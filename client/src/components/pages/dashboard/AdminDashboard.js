@@ -110,7 +110,7 @@ function AdminDashboard() {
 
     function renderHeader(data, index) {
         return (
-          <td>{data}</td>
+          <td className={`td-header${index}`}>{data}</td>
         )
       }
     
@@ -124,7 +124,7 @@ function AdminDashboard() {
                 <tr key={index}>
                     <th scope="row">{index}</th>
                     {dataValues.map((value, index) => 
-                        <td key={index}>{value.toString().substring(0,15)}</td>
+                        <td className={`td-body${index}`} key={index}>{value.toString().substring(0,15)}</td>
                     )}
                     <td>
                         <span style={{cursor:'pointer'}} onClick={()=>toggleEditar(data)}>Editar</span>&nbsp;&nbsp;

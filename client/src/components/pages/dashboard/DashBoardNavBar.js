@@ -27,7 +27,7 @@ function DashBoardNavBar() {
 
     return(
         <Navbar className="adminNavBar" color="dark" dark expand="sm">
-           <NavbarBrand>Administrador Ecommerce - {security.user.usuario} </NavbarBrand> 
+           <div className="navbrand" style={{color: '#fff'}}>Administrador Ecommerce - {security.user.usuario} </div> 
            <NavbarToggler onClick={toggleNavbar} className="mr-2" />
            <Collapse isOpen={!collapsed} navbar>
                <Nav className="ml-auto" navbar>
