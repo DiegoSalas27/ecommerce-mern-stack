@@ -56,7 +56,6 @@ function Auth() {
                         value={usuario}
                         onChange={e => setUsuario(e.target.value)}
                         autoFocus 
-                        tabIndex='0' 
                     />
                     {
                         propErrors.message && (
@@ -70,7 +69,7 @@ function Auth() {
                         name='contrasena' 
                         value={password}
                         onChange={e => setPassword(e.target.value)}
-                        tabIndex='0' />
+                    />
                     <button className='btn' type='submit' tabIndex='1'>{authState === true ? 'Iniciar Sesión' : 'Registrarse'}</button>
                     <div className='link'>
                         <p className="my-0">{authState === true ? '¿No tienes una cuenta?' : '¿Ya tienes una cuenta?'} </p>

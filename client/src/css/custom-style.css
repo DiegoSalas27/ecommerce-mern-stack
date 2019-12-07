@@ -184,24 +184,6 @@
 
 /* Auth styles */
 
-.logo-left {
-    position: absolute;
-    left: 0px;
-    width: 50%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.auth {
-    position: absolute;
-    right: 0;
-    padding-top: 10%;
-    width: 50%;
-    height: 100%;
-    display: inline-block;
-}
-
 .authForm {
     position: relative;
     top: 0%;
@@ -225,7 +207,7 @@
     padding-left: 15px;
     font-size: 20px;
     top: 50px;
-    width: 400px;
+    width: 56%;
     height: 33px;
     -webkit-transform: translate(-20%, -50%);
     -moz-transform: translate(-20%, -50%);
@@ -238,7 +220,6 @@
     padding-left: 15px;
     font-size: 20px;
     top: 80px;
-    width: 400px;
     height: 33px;
     -webkit-transform: translate(9%, -50%);
     -moz-transform: translate(9%, -50%);
@@ -258,7 +239,7 @@
     padding-left: 15px;
     font-size: 20px;
     top: 110px;
-    width: 400px;
+    width: 56%;
     height: 33px;
     -webkit-transform: translate(-20%, -50%);
     -moz-transform: translate(-20%, -50%);
@@ -281,15 +262,66 @@
 .authForm > .link {
     position: absolute;
     top: 190px;
-    width: 130px;
-    -webkit-transform: translate(250%, -40%);
-    -moz-transform: translate(250%, -40%);
-    -ms-transform: translate(250%, -40%);
-    -o-transform: translate(250%, -40%);
+    -webkit-transform: translate(41%, -40%);
+    -moz-transform: translate(41%, -40%);
+    -ms-transform: translate(41%, -40%);
+    -o-transform: translate(41%, -40%);
 }
 
 .authForm > .link > a {
     cursor: pointer;
+}
+
+@media(min-width: 375px) { 
+    .logo-left {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 50%;
+    }
+    .auth {
+        position: absolute;
+        bottom: -5%;
+        width: 100%;
+        height: 50%;
+    }
+    .inputUsuario {
+        font-size: 15px;
+    }
+}
+
+@media(min-width: 768px) {
+    .logo-left {
+        position: absolute;
+        left: 0px;
+        width: 50%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .auth {
+        position: absolute;
+        right: 0;
+        top: 30%;
+        width: 50%;
+        height: 70%;
+    }
+    .authForm > button {
+        -webkit-transform: translate(122%, -20%);
+        -moz-transform: translate(122%, -20%);
+        -ms-transform: translate(122%, -20%);
+        -o-transform: translate(122%, -20%);
+    }
+    .inputUsuario {
+        font-size: 15px;
+    }
+}
+
+@media(min-width: 1024px) { 
+    .inputUsuario {
+        font-size: 25px;
+    }
 }
 
 /* styles for admin dashboard */
