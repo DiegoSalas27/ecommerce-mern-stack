@@ -272,7 +272,7 @@
     cursor: pointer;
 }
 
-@media(min-width: 375px) { 
+@media(min-width: 200px) { 
     .logo-left {
         position: absolute;
         top: 0;
