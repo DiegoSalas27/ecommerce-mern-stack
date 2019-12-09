@@ -40,6 +40,10 @@
 
 /* categories styles */
 
+.navCategory {
+  position: static;
+}
+
 .navCategory ul li:hover {
   background: repeating-linear-gradient(
     #74abdd,
@@ -53,7 +57,7 @@
 .navCategory ul li {
   list-style: none;
   display: block;
-  padding: 13px 0px 13px 15px;
+  padding: 13px 15px 13px 15px;
 }
 
 .navCategory ul {
@@ -74,21 +78,16 @@
   }
 
   .navCategory ul {
-    display: flex;
-    list-style-type: none;
-    flex-direction: row;
-    justify-content: space-around;
+    width: 100%;
+    display: table;
+    border-collapse: separate;
   }
 
   .navCategory ul li {
     list-style: none;
-    display: block;
-    padding: 13px 0px 13px 0px;
-  }
-
-  .navCategory ul li:hover {
-    padding: 13px 10.2% 13px 10.2%;
-    margin: 0 -10.2% 0 -10.2%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
   }
 }
 
